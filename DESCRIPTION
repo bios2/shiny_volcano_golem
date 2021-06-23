@@ -6,10 +6,18 @@ Description: What is exploding, and where, in the world.
 License: What license is it under?
 Imports: 
     config (>= 0.3.1),
+    dplyr,
+    ggplot2,
     golem (>= 0.3.1.9000),
-    shiny (>= 1.6.0)
+    leaflet,
+    shiny (>= 1.6.0),
+    shinydashboard,
+    shinyWidgets
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
 URL: https://github.com/bios2/shiny_volcano_golem
 BugReports: https://github.com/bios2/shiny_volcano_golem/issues
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
