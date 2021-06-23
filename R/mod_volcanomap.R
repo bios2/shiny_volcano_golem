@@ -46,6 +46,7 @@ mod_volcanomap_server <- function(id, selected_volcanoes){
         leaflet::clearMarkers() %>%       # clear points
         leaflet::addCircleMarkers(        # add new points from "selected_volcanoes()" reactive object
           data = selected_volcanoes(),
+          layerId = ~volcano_name,
           lng = ~longitude,
           lat = ~latitude,
           radius = ~6,
@@ -62,6 +63,10 @@ mod_volcanomap_server <- function(id, selected_volcanoes){
         ) # end add circle markers
       
     })
+    
+    clicked_volcano <- reactive(input$map_marker_click$id)
+    
+    return(clicked_volcano)
     
   })
 }
