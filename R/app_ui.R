@@ -9,8 +9,42 @@ app_ui <- function(request) {
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # Your application UI logic 
-    fluidPage(
-      h1("shiny_volcano_golem")
+    shinydashboard::dashboardPage(
+      header = shinydashboard::dashboardHeader(
+        title = "Exploring Volcanoes of the World",
+        titleWidth = 350 # since we have a long title, we need to extend width element in pixels
+      ),
+      sidebar = shinydashboard::dashboardSidebar(disable = TRUE), # here, we only have one tab, so we don't need a sidebar
+      body = shinydashboard::dashboardBody(
+        # make first row of elements (actually, this will be the only row)
+        fluidRow(
+          # make first column, 25% of page - width = 3 of 12 colums
+          column(width = 3,
+                 # box 1 : input for selecting volcano type
+                 #-----------------------------------------------
+                 shinydashboard::box(width = NULL, status = "primary",
+                     title  = "Selection Criteria", solidHeader = T
+                     
+                 ), # end box 1
+                 # box 2: ggplot of selected volcanoes by continent
+                 #------------------------------------------------
+                 shinydashboard::box(width = NULL, status = "primary",
+                     solidHeader = TRUE, collapsible = T,
+                     title = "Volcanoes by Continent"
+
+                 ) # end box 2
+          ), # end column 1
+          
+          # second column - 75% of page (9 of 12 columns)
+          column(width = 9,
+                 
+                 # Box 3: leaflet map
+                 shinydashboard::box(width = NULL, background = "light-blue"
+                                     
+                 ) # end box with map
+          ) # end second column
+        ) # end fluidrow
+      ) # end body
     )
   )
 }
