@@ -28,6 +28,7 @@ mod_volcano_select_ui <- function(id){
 #' volcano_select Server Functions
 #'
 #' @noRd 
+#' @importFrom magrittr `%>%`
 mod_volcano_select_server <- function(id, volcano){
   moduleServer( id, function(input, output, session){
     ns <- session$ns

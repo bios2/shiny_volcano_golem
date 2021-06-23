@@ -26,7 +26,8 @@ usethis::use_package("ggplot2")
 ## Add modules ----
 ## Create a module infrastructure in R/
 golem::add_module( name = "volcano_select" ) # Name of the module
-golem::add_module( name = "name_of_module2" ) # Name of the module
+golem::add_module( name = "continentplot" ) # Name of the module
+golem::add_module( name = "volcanomap" ) # Name of the module
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*

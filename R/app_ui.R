@@ -23,14 +23,18 @@ app_ui <- function(request) {
                  # box 1 : input for selecting volcano type
                  #-----------------------------------------------
                  shinydashboard::box(width = NULL, status = "primary",
-                     title  = "Selection Criteria", solidHeader = T
+                     title  = "Selection Criteria", solidHeader = T,
+                     
+                     mod_volcano_select_ui("volcano_select_1")
                      
                  ), # end box 1
                  # box 2: ggplot of selected volcanoes by continent
                  #------------------------------------------------
                  shinydashboard::box(width = NULL, status = "primary",
                      solidHeader = TRUE, collapsible = T,
-                     title = "Volcanoes by Continent"
+                     title = "Volcanoes by Continent",
+                     
+                     mod_continentplot_ui("continentplot_1")
 
                  ) # end box 2
           ), # end column 1
@@ -39,7 +43,9 @@ app_ui <- function(request) {
           column(width = 9,
                  
                  # Box 3: leaflet map
-                 shinydashboard::box(width = NULL, background = "light-blue"
+                 shinydashboard::box(width = NULL, background = "light-blue",
+                                     
+                                     mod_volcanomap_ui("volcanomap_1")
                                      
                  ) # end box with map
           ) # end second column
